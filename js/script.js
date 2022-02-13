@@ -9,14 +9,19 @@ window.addEventListener('load', function () {
     });
 
     btnSubmit.addEventListener('click', function (e) {
-        let todo = document.createElement('div');
-        todo.classList.add('todo-item');
-        todoList.appendChild(todo);
-        todo.innerHTML = input.value;
-        input.value = '';
+        if (input.value === '') {
+            alert('Please enter a task');
+        } else {
+            let todo = document.createElement('div');
+            todo.classList.add('todo-item');
+            todoList.appendChild(todo);
+            todo.innerHTML = input.value;
+    
+            const taskAdd = input.value = '';
 
-        todo.addEventListener('click', () => {
-            todo.remove()
-        });
+            todo.addEventListener('click', () => {
+                todo.remove()
+            });
+        }
     });
 });
